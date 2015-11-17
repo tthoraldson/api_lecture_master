@@ -10,14 +10,9 @@
     <script type="text/javascript" src="/scripts/ang_app.js"></script>
 </head>
 <body>
-    <h1>Data APIs!</h1>
+    <h1>Angular Data APIs!</h1>
     <div ng-controller="APIController">
 
-        <div class="well" ng-repeat="item in data | limitTo: 30">
-            <h3>Title: {{item.name}}</h3>
-            <p>{{item.deck}}</p>
-            <p><a ng-href="{{item.site_detail_url}}">More Info...</a></p>
-        </div>
 
     </div>
 </body>
