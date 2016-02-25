@@ -1,20 +1,29 @@
 var myApp = angular.module('myApp', []);
 
 myApp.controller('APIController', ['$scope', '$http', function($scope, $http) {
-    var apikey = "ca5d63fdb921e2570069eb8267389c4a9260227a";
-    var baseUrl = "http://www.giantbomb.com/api";
+    $scope.data = {};
 
-    // construct our URL
-    var gameSearchURL = baseUrl + '/search/?api_key=' + apikey + '&format=jsonp&limit=50';
-    var query = 'Batman & Robin';
+    function petFinder() {
+        // API key
+        var key = 'your api key here';
 
-    var finalURL = gameSearchURL + '&query=' + encodeURI(query) + '&json_callback=JSON_CALLBACK';
+        var baseURL = 'http://api.petfinder.com/';
+        var query = 'pet.getRandom';
+        query += '?key=' + key;
+        query += '&animal=dog';
+        query += '&output=basic';
+        query += '&format=json';
 
-    $http.jsonp(finalURL).then(
-        function(response) {
-            console.log(response.data);
-        }
-    );
+        var request = baseURL + encodeURI(query) + '&callback=JSON_CALLBACK';
+        console.log(request);
 
+        $http.jsonp(request).then(
+            function(response) {
+                $scope.animal = response.data.petfinder.pet;
+                console.log($scope.animal);
+            }
+        );
+    }
 
+    petFinder();
 }]);
