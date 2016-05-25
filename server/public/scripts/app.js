@@ -5,6 +5,7 @@ $(document).ready(function() {
 function petFinder() {
     // API Key
     var key = 'your api key';
+    var key = 'b900e0d5e332753a460a64eaa8de00fd';
 
     var baseURL = 'http://api.petfinder.com/';
     var query = 'pet.getRandom';

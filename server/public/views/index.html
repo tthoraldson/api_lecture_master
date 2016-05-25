@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Data APIs!</title>
     <link rel="stylesheet" href="/vendors/bootstrap.min.css" />
     <link rel="stylesheet" href="/styles/style.css" />
     <!-- Angular -->
     <script type="text/javascript" src="/vendors/angular.min.js"></script>
     <script type="text/javascript" src="/scripts/ang_app.js"></script>
-
 </head>
-<body>
+<body ng-app="myApp">
     <h1>Data APIs!</h1>
-    <div class="contrainer" ng-controller="APIController">
+    <div class="container" ng-controller="APIController">
       <div class="col-md-6">
-        <button ng-click="getRandomPet()">Random Pet</button>
+        <button ng-click="getRandomPet()">Find Random Pet</button>
         <h2>{{animal.name.$t}}</h2>
         <p>{{animal.description.$t}}</p>
       </div>
       <div class="col-md-6">
-        <input type="text" ng-model="breed" placeholder="Enter animal type"/>
+        <input type="text" ng-model="breed" placeholder="Enter animal type" />
         <button ng-click="getBreeds()">Get Breeds</button>
         <h2 ng-if="breeds != undefined">Breeds of {{breed}}</h2>
         <ul>
