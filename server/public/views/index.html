@@ -13,9 +13,8 @@
     <h1>Data APIs!</h1>
 
     <div class="container" ng-controller="APIController">
-      <button ng-click="serverPets()">Server AJAX</button>
       <div class="col-md-6">
-        <button ng-click="getRandomPet()">Find Random Pet</button>
+        <button ng-click="serverPets()">Find Random Pet</button>
         <h2>{{animal.name.$t}}</h2>
         <p>{{animal.description.$t}}</p>
         id {{animal.media.photos.photo[0]['@id']}}

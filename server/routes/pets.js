@@ -3,11 +3,14 @@ var router = express.Router();
 var request = require('request');
 var key = 'b900e0d5e332753a460a64eaa8de00fd';
 
-router.get('/getRandomPet', function(req, res) {
+// this can handle requests to /getRandomPet or /getRandomPet/animal 
+router.get('/getRandomPet/:animal*?', function(req, res) {
   var baseURL = 'http://api.petfinder.com/';
   var query = 'pet.getRandom';
   query += '?key=' + key;
-  query += '&animal=dog';
+  if(req.params.animal) {
+    query += '&animal=' + req.params.animal;
+  }
   query += '&output=basic';
   query += '&format=json';
 

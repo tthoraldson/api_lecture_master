@@ -30,7 +30,10 @@ myApp.controller('APIController', ['$scope', '$http', function($scope, $http) {
   $scope.serverPets = function() {
     console.log('ajax get to server');
     $http.get('/pets/getRandomPet').then(function(response) {
-      console.log(response);
+      console.log(response.data);
+      $scope.animal = response.data.petfinder.pet;
+      $scope.breed = $scope.animal.animal.$t;
+      $scope.getBreeds();
     });
   }
 
