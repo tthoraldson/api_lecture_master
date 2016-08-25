@@ -27,6 +27,13 @@ myApp.controller('APIController', ['$scope', '$http', function($scope, $http) {
     )
   }
 
+  $scope.serverPets = function() {
+    console.log('ajax get to server');
+    $http.get('/pets/getRandomPet').then(function(response) {
+      console.log(response);
+    });
+  }
+
   $scope.getBreeds = function() {
     var query = 'breed.list';
     query += '?key=' + key;

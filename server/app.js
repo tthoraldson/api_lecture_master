@@ -1,9 +1,12 @@
 var express = require("express");
 var app = express();
 var path = require('path');
+var pets = require('./routes/pets');
 
 // Serve back static files
 app.use(express.static(path.join(__dirname, './public')));
+
+app.use('/pets', pets);
 
 app.get("/jq", function(req,res,next){
     res.sendFile(path.join(__dirname, "./public/views/indexjq.html"));
